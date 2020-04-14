@@ -10,12 +10,12 @@ const timeInDays = (time, period) => {
 
 
 const covid19ImpactEstimator = (data) => {
-  const estimate = { data: data, impact: {}, severeImpact: {} }
+  const estimate = { data, impact: {}, severeImpact: {} };
   const {
-  periodType,
-  timeToElapse,
-  reportedCases,
-  region
+    periodType,
+    timeToElapse,
+    reportedCases,
+    region
   } = data;
     const time = timeInDays(timeToElapse, periodType);
     estimate.impact.currentlyInfected = reportedCases * 10;
