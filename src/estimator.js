@@ -7,25 +7,22 @@ const covid19ImpactEstimator = (data) => {
   output.impact.infectionsByRequestedTime = output.impact.currentlyInfected * 512;
   
    
-  const myimpact1 = (15 / 100) * (output.severeImpact.infectionsByRequestedTime);
-  output.severeImpact.severeCasesByRequestedTime = myimpact1;
-  const myimpact2 = (15 / 100) * (output.impact.infectionsByRequestedTime);
-  output.impact.severeCasesByRequestedTime = myimpact2;
+  const mpact1 = (15 / 100) * (output.severeImpact.infectionsByRequestedTime);
+  output.severeImpact.severeCasesByRequestedTime = mpact1;
+  const mpact2 = (15 / 100) * (output.impact.infectionsByRequestedTime);
+  output.impact.severeCasesByRequestedTime = mpact2;
 
-  const myimpact3 = (35 / 100) * (data.totalHospitalBeds) * output.severeImpact.severeCasesByRequestedTime;
-  output.severeImpact.hospitalBedsByRequestedTime = myimpact3;
+  const mpact3 = (35 / 100) * (data.totalHospitalBeds) * output.severeImpact.severeCasesByRequestedTime;
+  output.severeImpact.hospitalBedsByRequestedTime = mpact3;
 
-  const myimpact4 = ((35 / 100) * data.totalHospitalBeds) * output.impact.severeCasesByRequestedTime;
+  const mpact4 = ((35 / 100) * data.totalHospitalBeds) * output.impact.severeCasesByRequestedTime;
+  output.impact.hospitalBedsByRequestedTime = mpact4; 
+  const mpact5 = (5 / 100) * output.severeImpact.infectionsByRequestedTime;
 
-  output.impact.hospitalBedsByRequestedTime = myimpact4; 
+  output.severeImpact.casesForICUByRequestedTime = mpact5;
+  const mpact6 = (2 / 100) * output.severeImpact.infectionsByRequestedTime;
+  output.severeImpart.casesForVentilatorsByRequestedTime = mpact6;
 
-  const myimpact5 = (5 / 100) * output.severeImpact.infectionsByRequestedTime;
-
-  output.severeImpact.casesForICUByRequestedTime = myimpact5;
-  const myimpact6 = (2 / 100) * output.severeImpact.infectionsByRequestedTime;
-  output.severeImpart.casesForVentilatorsByRequestedTime = myimpact6;
-
-    //severeImpact.dollarsInFlight = avgDailyIncomeInUSD
 };
 
 export default covid19ImpactEstimator;
