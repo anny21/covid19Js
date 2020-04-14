@@ -1,9 +1,10 @@
 const timeInDays = (time, period) => {
-  if(period === 'days'){
+  if (period === 'days') {
       return Math.trunc(2 ** ((time * 7) / 3));
-  }else if(period === 'weeks'){
+  } else if (period === 'weeks') {
     return Math.trunc(2 ** ((time * 7) / 3));
-  }else if(period == 'months'){
+  } else {
+    period = "months";
     return Math.trunc(2 ** ((time * 30) / 3));
   }
 }
@@ -29,7 +30,7 @@ const covid19ImpactEstimator = (data) => {
   estimate.impact.infectionsByRequestedTime = x * 2 ** parseInt(time / 3, 10);
   const z = y * 2 ** parseInt(time / 3, 10);
   estimate.severeImpact.infectionsByRequestedTime = z;
-  
+
   return estimate;
 };
 
