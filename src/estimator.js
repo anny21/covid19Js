@@ -1,5 +1,5 @@
 const covid19ImpactEstimator = (data) => {
-    let output = {data:{}, impact:{}, severeImpact:{}};
+    const output = {data:{}, impact:{}, severeImpact:{}};
     impact.currentlyInfected = data.reportedCases * 10;
     severeImpact.currentlyInfected = data.reportedCases * 50;
 
