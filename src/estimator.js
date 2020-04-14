@@ -4,17 +4,26 @@ const covid19ImpactEstimator = (data) => {
   output.severeImpact.currentlyInfected = data.reportedCases * 50;
 
   output.severeImpact.infectionsByRequestedTime = output.severeImpact.currentlyInfected * 512;
-  output.impact.infectionsByRequestedTime  = output.impact.currentlyInfected * 512;
+  output.impact.infectionsByRequestedTime = output.impact.currentlyInfected * 512;
+  
+   
+  const myimpact1 = (15 / 100) * (output.severeImpact.infectionsByRequestedTime);
+  output.severeImpact.severeCasesByRequestedTime = myimpact1;
+  const myimpact2 = (15 / 100) * (output.impact.infectionsByRequestedTime);
+  output.impact.severeCasesByRequestedTime = myimpact2;
 
-  output.severeImpact.severeCasesByRequestedTime = (15 / 100) * (output.severeImpact.infectionsByRequestedTime);
-  output.impact.severeCasesByRequestedTime = (15 / 100) * (output.impact.infectionsByRequestedTime);
+  const myimpact3 = (35 / 100) * (data.totalHospitalBeds) * output.severeImpact.severeCasesByRequestedTime;
+  output.severeImpact.hospitalBedsByRequestedTime = myimpact3;
 
-  output.severeImpact.hospitalBedsByRequestedTime = (35 / 100) * (data.totalHospitalBeds) * output.severeImpact.severeCasesByRequestedTime;
-  output.impact.hospitalBedsByRequestedTime = ((35 / 100) * data.totalHospitalBeds) * output.impact.severeCasesByRequestedTime;
+  const myimpact4 = ((35 / 100) * data.totalHospitalBeds) * output.impact.severeCasesByRequestedTime;
 
+  output.impact.hospitalBedsByRequestedTime = myimpact4; 
 
-  output.severeImpact.casesForICUByRequestedTime = (5 / 100) * output.severeImpact.infectionsByRequestedTime;
-  output.severeImpart.casesForVentilatorsByRequestedTime = (2/100) * output.severeImpact.infectionsByRequestedTime;
+  const myimpact5 = (5 / 100) * output.severeImpact.infectionsByRequestedTime;
+
+  output.severeImpact.casesForICUByRequestedTime = myimpact5;
+  const myimpact6 = (2 / 100) * output.severeImpact.infectionsByRequestedTime;
+  output.severeImpart.casesForVentilatorsByRequestedTime = myimpact6;
 
     //severeImpact.dollarsInFlight = avgDailyIncomeInUSD
 };
