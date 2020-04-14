@@ -1,20 +1,20 @@
 const covid19ImpactEstimator = (data) => {
-    const output = {data:{}, impact:{}, severeImpact:{}};
-    impact.currentlyInfected = data.reportedCases * 10;
-    severeImpact.currentlyInfected = data.reportedCases * 50;
+  const output = { data:{}, impact:{}, severeImpact:{} };
+    output.impact.currentlyInfected = data.reportedCases * 10;
+    output.severeImpact.currentlyInfected = data.reportedCases * 50;
 
-    severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 512;
-    impact.infectionsByRequestedTime  = impact.currentlyInfected * 512;
+    output.severeImpact.infectionsByRequestedTime = output.severeImpact.currentlyInfected * 512;
+    output.impact.infectionsByRequestedTime  = output.impact.currentlyInfected * 512;
 
-    severeImpact.severeCasesByRequestedTime = 15 / 100 * severeImpact.infectionsByRequestedTime;
-    impact.severeCasesByRequestedTime = 15 / 100 * impact.infectionsByRequestedTime;
+    output.severeImpact.severeCasesByRequestedTime = (15 / 100) * (output.severeImpact.infectionsByRequestedTime);
+    output.impact.severeCasesByRequestedTime = (15 / 100) * (output.impact.infectionsByRequestedTime);
 
-    severeImpact.hospitalBedsByRequestedTime = (35 / 100 * data.totalHospitalBeds) * severeImpact.severeCasesByRequestedTime;
-    impact.hospitalBedsByRequestedTime = (35 / 100 * data.totalHospitalBeds) * impact.severeCasesByRequestedTime;
+    output.severeImpact.hospitalBedsByRequestedTime = (35 / 100) * (data.totalHospitalBeds) * output.severeImpact.severeCasesByRequestedTime;
+    output.impact.hospitalBedsByRequestedTime = ((35 / 100) * data.totalHospitalBeds) * output.impact.severeCasesByRequestedTime;
 
 
-    severeImpact.casesForICUByRequestedTime = 5 / 100 * severeImpact.infectionsByRequestedTime;
-    severeImpart.casesForVentilatorsByRequestedTime = 2/100 * severeImpact.infectionsByRequestedTime;
+    output.severeImpact.casesForICUByRequestedTime = (5 / 100) * output.severeImpact.infectionsByRequestedTime;
+    output.severeImpart.casesForVentilatorsByRequestedTime = (2/100) * output.severeImpact.infectionsByRequestedTime;
 
     //severeImpact.dollarsInFlight = avgDailyIncomeInUSD
 };
