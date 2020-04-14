@@ -16,14 +16,21 @@ const covid19ImpactEstimator = (data) => {
 
   const a = output.severeImpact.severeCasesByRequestedTime;
   const mpact3 = (35 / 100) * (data.totalHospitalBeds) * a;
+
   output.severeImpact.hospitalBedsByRequestedTime = mpact3;
+
   const b = output.impact.severeCasesByRequestedTime;
+
   const mpact4 = ((35 / 100) * data.totalHospitalBeds) * b;
   output.impact.hospitalBedsByRequestedTime = mpact4;
+
   const mpact5 = (5 / 100) * output.severeImpact.infectionsByRequestedTime;
   output.severeImpact.casesForICUByRequestedTime = mpact5;
+
   const mpact6 = (2 / 100) * output.severeImpact.infectionsByRequestedTime;
   output.severeImpart.casesForVentilatorsByRequestedTime = mpact6;
+
+  return output;
 };
 
 export default covid19ImpactEstimator;
