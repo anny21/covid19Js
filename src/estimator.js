@@ -1,11 +1,11 @@
 const timeInDays = (time, period) => {
   if (period === 'days') {
-      return Math.trunc(2 ** ((time * 7) / 3));
+    Math.trunc(2 ** ((time * 7) / 3));
   } else if (period === 'weeks') {
-    return Math.trunc(2 ** ((time * 7) / 3));
+    Math.trunc(2 ** ((time * 7) / 3));
   } else {
     period = "months";
-    return Math.trunc(2 ** ((time * 30) / 3));
+    Math.trunc(2 ** ((time * 30) / 3));
   }
 }
 
